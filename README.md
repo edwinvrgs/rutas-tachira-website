@@ -1,3 +1,3 @@
 #Rutas Táchira
 
-A dynamic website build in PHP
+Página web para la administración de las rutas de transporte público para la ciudad de San Cristobal
