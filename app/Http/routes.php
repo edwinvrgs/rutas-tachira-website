@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('rutas', 'RutasController@index');
+
+Route::get('sugerencias', 'SugerenciasController@index');
