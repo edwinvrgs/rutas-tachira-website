@@ -14,7 +14,7 @@ class CreatePuntosTable extends Migration
     {
         Schema::create('puntos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('descripcion', 100);
+            $table->string('descripcion', 100)->unique();
             $table->string('tipo', 20)->default('intermedio');
             $table->timestamps();
         });

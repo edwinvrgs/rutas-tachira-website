@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Empresa extends Model
 {
-    protected $fillable = ['note'];
+      protected $fillable = ['descripcion'];
 }

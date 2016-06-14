@@ -20,5 +20,3 @@ Route::auth();
 Route::get('rutas', 'RutasController@index');
 
 Route::get('sugerencias', 'SugerenciasController@index');
-
-Route::get('/home', 'HomeController@index');

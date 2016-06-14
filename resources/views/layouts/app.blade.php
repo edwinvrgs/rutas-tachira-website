@@ -50,15 +50,22 @@
           <ul class="nav navbar-nav navbar-right">
             <!-- Authentication Links -->
             @if (Auth::guest())
-              <li><a href="{{ url('/login') }}"><i class="fa fa-btn fa-sign-in" aria-hidden="true"></i>Login</a></li>
-              <li><a href="{{ url('/register') }}"><i class="fa fa-btn fa-user-plus" aria-hidden="true"></i>Register</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Invitado<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="{{ url('/login') }}"><i class="fa fa-btn fa-sign-in" aria-hidden="true"></i>Iniciar sesión</a></li>
+                  <li><a href="{{ url('/register') }}"><i class="fa fa-btn fa-user-plus" aria-hidden="true"></i>Registrarse</a></li>
+                </ul>
+              </li>
             @else
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                {{ Auth::user()->name }} <span class="caret"></span>
+                {{ Auth::user()->first_name.' '.Auth::user()->last_name  }} <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                  <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Cerrar sesión</a></li>
                 </ul>
               </li>
             @endif
