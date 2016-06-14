@@ -10,6 +10,6 @@ class RutasController extends Controller
 {
     public function index()
     {
-        return 'Rutas';
+        return view('rutas');
     }
 }

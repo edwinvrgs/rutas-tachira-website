@@ -10,6 +10,6 @@ class SugerenciasController extends Controller
 {
     public function index()
     {
-        return 'Sugerencias';
+        return view('sugerencias');
     }
 }
