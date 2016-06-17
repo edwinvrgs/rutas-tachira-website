@@ -17,6 +17,5 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('rutas', 'RutasController@index');
-
-Route::get('sugerencias', 'SugerenciasController@index');
+Route::resource('rutas', 'RutasController');
+Route::resource('sugerencias', 'SugerenciasController');
