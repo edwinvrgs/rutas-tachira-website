@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Empresa extends Model
 {
       protected $fillable = ['descripcion'];
+
+      public function rutas()
+      {
+            return $this->hasMany(Ruta::class);
+      }
 }

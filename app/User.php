@@ -21,6 +21,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'is_admin',
     ];
+
+    public function sugerencias()
+    {
+        return $this->hasMany(Sugerencia::class);
+    }
 }
