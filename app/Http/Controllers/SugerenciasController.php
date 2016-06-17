@@ -15,7 +15,7 @@ class SugerenciasController extends Controller
      */
     public function index()
     {
-        //
+        return view('sugerencias/sugerencias');
     }
 
     /**

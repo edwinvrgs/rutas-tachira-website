@@ -7,6 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Páginas para el transporte público">
     <meta name="author" content="Edwin">
+    <meta name="_token" content="{!! csrf_token() !!}"/>
     <link rel="icon" href="../../favicon.ico">
 
     <title>Rutas Táchira</title>
@@ -109,6 +110,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
+    <script type="text/javascript">
+      $.ajaxSetup({
+        headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+      });
+    </script>
     @yield('scripts')
 
   </body>

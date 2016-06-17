@@ -3,18 +3,16 @@ $(function(){
 });
 
 function BuscarRutasClick () {
-  var url = '/rutas'
+  var url = 'rutas'
   var ruta = $('.ruta').val();
 
   $.ajax({
     type: 'post',
     url: url,
-    value: ruta,
-    sucess: function(data, textStatus, jqXHR) {
+    data: {ruta: ruta},
 
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-
+    success: function(data, textStatus, jqXHR) {
+      console.log(data);
     }
   });
 }

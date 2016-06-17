@@ -10,6 +10,6 @@ class Punto extends Model
 
       public function rutas()
       {
-            return $this->belongsToMany(Ruta::class);
+            return $this->belongsToMany(Ruta::class)->withTimestamps();
       }
 }

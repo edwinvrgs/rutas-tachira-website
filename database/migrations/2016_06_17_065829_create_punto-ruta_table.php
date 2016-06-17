@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePuntosTable extends Migration
+class CreatePuntoRutaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,10 @@ class CreatePuntosTable extends Migration
      */
     public function up()
     {
-        Schema::create('puntos', function (Blueprint $table) {
+        Schema::create('punto_ruta', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('descripcion', 100)->unique();
-            $table->enum('tipo', array('inicial', 'final', 'intermedio'));
+            $table->unsignedInteger('punto_id');
+            $table->unsignedInteger('ruta_id');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreatePuntosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('puntos');
+        Schema::drop('punto_ruta');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Ruta;
 use App\Http\Requests;
 
 class RutasController extends Controller
@@ -15,7 +16,7 @@ class RutasController extends Controller
      */
     public function index()
     {
-        //
+        return view('rutas/rutas');
     }
 
     /**
@@ -25,7 +26,6 @@ class RutasController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -36,7 +36,14 @@ class RutasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->ajax()) {
+            $ruta = $request->input('ruta');
+            $rutas = Ruta::where('descripcion', 'LIKE', "%$ruta%")->get();
+
+            return response()->json(array('rutas' => $rutas));
+        }
+
+        
     }
 
     /**

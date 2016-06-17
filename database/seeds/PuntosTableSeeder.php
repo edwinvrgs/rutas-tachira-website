@@ -1,5 +1,6 @@
 <?php
 
+use App\Punto;
 use Illuminate\Database\Seeder;
 
 class PuntosTableSeeder extends Seeder
@@ -11,6 +12,8 @@ class PuntosTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Punto::class)->times(10)->create(['tipo' => 'inicial']);
+        factory(Punto::class)->times(10)->create(['tipo' => 'final']);
+        factory(Punto::class)->times(50)->create();
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Empresa;
 use Illuminate\Database\Seeder;
 
 class EmpresasTableSeeder extends Seeder
@@ -11,6 +12,6 @@ class EmpresasTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Empresa::class)->times(4)->create();
     }
 }

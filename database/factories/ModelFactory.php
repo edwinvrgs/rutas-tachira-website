@@ -13,46 +13,38 @@
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
         'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
+        'password' => bcrypt('password'),
         'remember_token' => str_random(10),
+        'is_admin' => false,
     ];
 });
 
 $factory->define(App\Punto::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'descripcion' => $faker->streetName,
+        'tipo' => 'intermedio',
     ];
 });
 
 $factory->define(App\Ruta::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'descripcion' => $faker->streetAddress,
+        'pasaje' => $faker->randomFloat(3, 0, 150),
     ];
 });
 
 
 $factory->define(App\Empresa::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'descripcion' => $faker->company,
     ];
 });
 
 $factory->define(App\Sugerencia::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'descripcion' => $faker->text(100),
     ];
 });

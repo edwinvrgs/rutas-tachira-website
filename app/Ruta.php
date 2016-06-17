@@ -10,7 +10,7 @@ class Ruta extends Model
 
       public function puntos()
       {
-            return $this->belongsToMany(Punto::class);
+            return $this->belongsToMany(Punto::class)->withTimestamps();
       }
 
       public function empresa()
