@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Páginas para el transporte público">
+    <meta name="author" content="Edwin">
     <link rel="icon" href="../../favicon.ico">
 
     <title>Rutas Táchira</title>
@@ -25,6 +25,22 @@
 
       .fa-btn {
         margin-right: 8px;
+      }
+
+      .fondo-index {
+
+      }
+
+      .fondo-rutas {
+
+      }
+
+      .fondo-sugerencias {
+
+      }
+
+      .error {
+
       }
     </style>
   </head>
@@ -74,12 +90,26 @@
       </div>
     </nav>
 
-      @yield('content')
+    <div class="container-fluid">
+        <div class="row">
+          @yield('content')
+        </div>
+    </div>
+
+    <footer class="footer">
+      <nav class="navbar navbar-inverse navbar-fixed-bottom" style="margin-top: 500">
+        <div class="container-fluid">
+            <a class="navbar-brand">Edwin Vargas</a>
+        </div>
+      </nav>
+    </footer>
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+
+    @yield('scripts')
 
   </body>
 </html>
