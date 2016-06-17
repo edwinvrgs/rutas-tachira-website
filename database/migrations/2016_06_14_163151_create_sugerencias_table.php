@@ -14,9 +14,7 @@ class CreateSugerenciasTable extends Migration
     {
         Schema::create('sugerencias', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre', 100);
-            $table->string('apellido', 100);
-            $table->string('correo', 100);
+            $table->unsignedInteger('user_id');
             $table->string('sugerencia', 100);
             $table->string('empresa', 100)->nullable();
             $table->timestamps();

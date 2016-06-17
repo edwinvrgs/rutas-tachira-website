@@ -14,6 +14,7 @@ class CreateRutasTable extends Migration
     {
         Schema::create('rutas', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('empresa_id');
             $table->string('descripcion', 100)->unique();
             $table->float('pasaje', 100);
             $table->timestamps();
