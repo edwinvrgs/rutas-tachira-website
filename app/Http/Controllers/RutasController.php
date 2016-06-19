@@ -16,7 +16,9 @@ class RutasController extends Controller
      */
     public function index()
     {
-        return view('rutas/rutas');
+        $rutas = Ruta::all();
+
+        return view('rutas/rutas', compact('rutas'));
     }
 
     /**
@@ -40,10 +42,29 @@ class RutasController extends Controller
             $ruta = $request->input('ruta');
             $rutas = Ruta::where('descripcion', 'LIKE', "%$ruta%")->get();
 
-            return response()->json(array('rutas' => $rutas));
-        }
+            $inner = '';
+            // Ruta (id), descripcion, pasaje, puntos
+            foreach($rutas as $ruta) {
 
-        
+                $inner .= '<tr>';
+                $inner .= '<td>'.$ruta->id.'</td>';
+                $inner .= '<td>'.$ruta->descripcion.'</td>';
+                $inner .= '<td>'.$ruta->pasaje.'</td>';
+
+                $inner .= '<td>';
+                $check = false;
+                foreach($ruta->puntos as $punto) {
+                    $inner .= $check ? '->' : '';
+                    $inner .= $punto->descripcion;
+                    $check = true;
+                }
+                $inner .= '</td>';
+
+                $inner .= '</tr>';
+            }
+
+            return $inner;
+        }
     }
 
     /**

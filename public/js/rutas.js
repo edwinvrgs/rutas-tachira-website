@@ -3,7 +3,7 @@ $(function(){
 });
 
 function BuscarRutasClick () {
-  var url = 'rutas'
+  var url = 'rutas';
   var ruta = $('.ruta').val();
 
   $.ajax({
@@ -11,8 +11,9 @@ function BuscarRutasClick () {
     url: url,
     data: {ruta: ruta},
 
-    success: function(data, textStatus, jqXHR) {
+    success: function(data) {
       console.log(data);
+    //  $('.table').html(data);
     }
   });
 }
