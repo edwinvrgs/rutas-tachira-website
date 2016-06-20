@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="col-md-12">
+  <div class="col-md-8">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <div class="input-group">
@@ -12,38 +12,7 @@
         </div>
       </div>
       <div class="panel-body">
-        <table class="table table-hover table-responsive">
-          <thead>
-            <tr>
-              <th>Código</th>
-              <th>Nombre</th>
-              <th>Pasaje</th>
-              <th>Empresa</th>
-              <th>Y pasa por...</th>
-            </tr>
-          </thead>
-          <tbody>
-          @if($rutas)
-            @foreach($rutas as $ruta)
-              <tr>
-                <th>{{ $ruta->id }}</td>
-                <td>{{ $ruta->descripcion }}</td>
-                <td>{{ $ruta->pasaje }}</td>
-                <td>{{ $ruta->empresa->descripcion }}</td>
-
-                <td>
-                  @foreach($ruta->puntos as $punto)
-                    @if($punto)
-                        &#8594;
-                    @endif
-                    {{ $punto->descripcion }}
-                  @endforeach
-                <td>
-              </tr>
-            @endforeach
-          @endif
-          </tbody>
-        </table>
+        @include('rutas.list')
       </div>
     </div>
   </div>

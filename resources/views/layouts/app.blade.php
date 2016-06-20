@@ -93,7 +93,11 @@
 
     <div class="container-fluid">
         <div class="row">
-          @yield('content')
+          @if(Auth::guest() && !Request::is('/'))
+            <div> Pailas pa </div>
+          @else
+            @yield('content')
+          @endif
         </div>
     </div>
 
@@ -108,6 +112,5 @@
       });
     </script>
     @yield('scripts')
-
   </body>
 </html>

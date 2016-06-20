@@ -13,7 +13,7 @@ function BuscarRutasClick () {
 
     success: function(data) {
       console.log(data);
-    //  $('.table').html(data);
+      $('.panel-body').html(data.html);
     }
   });
 }
