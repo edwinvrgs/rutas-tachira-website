@@ -4,15 +4,15 @@ $(function(){
 
 function BuscarRutasClick () {
   var url = 'rutas';
-  var ruta = $('.ruta').val();
+  var punto = $('.punto').val();
 
   $.ajax({
     type: 'post',
     url: url,
-    data: {ruta: ruta},
+    data: {punto: punto},
 
     success: function(data) {
-      console.log(data);
+      //console.log(data.html);
       $('.panel-body').html(data.html);
     }
   });

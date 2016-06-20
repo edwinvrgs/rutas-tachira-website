@@ -93,7 +93,7 @@
 
     <div class="container-fluid">
         <div class="row">
-          @if(Auth::guest() && !Request::is('/'))
+          @if(Auth::guest() && (Request::is('/rutas') || Request::is('/sugerencias')))
             <div> Pailas pa </div>
           @else
             @yield('content')

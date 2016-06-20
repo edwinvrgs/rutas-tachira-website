@@ -5,7 +5,7 @@
     <div class="panel panel-primary">
       <div class="panel-heading">
         <div class="input-group">
-          <input type="text" name="search" class="ruta form-control" placeholder="Ingrese punto a buscar">
+          <input type="text" name="search" class="punto form-control" placeholder="Ingrese punto a buscar">
           <span class="input-group-btn">
             <button class="btn btn-default buscar-rutas" type="button">Buscar</button>
           </span>

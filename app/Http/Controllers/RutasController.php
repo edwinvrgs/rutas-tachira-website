@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Ruta;
+use App\Punto;
 use App\Http\Requests;
 
 class RutasController extends Controller
@@ -39,8 +40,23 @@ class RutasController extends Controller
     public function store(Request $request)
     {
         if($request->ajax()) {
-            $ruta = $request->input('ruta');
-            $rutas = Ruta::where('descripcion', 'LIKE', "%$ruta%")->get();
+
+            $this->validate(request(), [
+                'note' => ['max:20']
+            ]);
+
+            $value = $request->input('punto');
+            $puntos = Punto::where('descripcion', 'LIKE', '%'.trim($value).'%')->get();
+
+            $rutas = collect([]);
+
+            foreach ($puntos as $punto) {
+                foreach($punto->rutas as $ruta_aux) {
+                    $rutas->push($ruta_aux);
+                }
+            }
+
+            $rutas = $rutas->unique('id')->sortBy('id');
 
             return response()->json(['html' => view('rutas/list', compact('rutas'))->render()]);
         }
