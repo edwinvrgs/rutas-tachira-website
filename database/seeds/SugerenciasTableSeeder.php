@@ -14,14 +14,15 @@ class SugerenciasTableSeeder extends Seeder
      */
     public function run()
     {
-        $users = User::all();
-        $empresas = Empresa::all();
-
         $sugerencias = factory(Sugerencia::class)->times(20)->make();
 
         foreach($sugerencias as $sugerencia) {
-            $sugerencia->empresa()->save($empresas->random());
-            $users->random()->sugerencias()->save($sugerencia);
+
+            $user = User::orderByRaw(DB::raw('RAND()'))->first();
+            $empresa = Empresa::orderByRaw(DB::raw('RAND()'))->first();
+
+            $empresa->sugerencias()->save($sugerencia);
+            $user->sugerencias()->save($sugerencia);
         }
     }
 }

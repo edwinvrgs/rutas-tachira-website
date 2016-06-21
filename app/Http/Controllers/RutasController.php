@@ -17,9 +17,29 @@ class RutasController extends Controller
      */
     public function index()
     {
-        $rutas = Ruta::all();
+        if(request()->ajax()) {
+            $this->validate(request(), [
+                'note' => ['max:100']
+            ]);
 
-        return view('rutas/rutas', compact('rutas'));
+            $value = request()->input('punto');
+            $puntos = Punto::where('descripcion', 'LIKE', '%'.trim($value).'%')->get();
+
+            $rutas = collect([]);
+
+            foreach ($puntos as $punto)
+                foreach($punto->rutas as $ruta_aux)
+                    $rutas->push($ruta_aux);
+
+            $rutas = $rutas->unique('id')->sortBy('id');
+
+            return response()->json(['html' => view('rutas/list', compact('rutas'))->render()]);
+        } else {
+
+            $rutas = Ruta::all();
+
+            return view('rutas/rutas', compact('rutas'));
+        }
     }
 
     /**
@@ -39,27 +59,7 @@ class RutasController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->ajax()) {
 
-            $this->validate(request(), [
-                'note' => ['max:20']
-            ]);
-
-            $value = $request->input('punto');
-            $puntos = Punto::where('descripcion', 'LIKE', '%'.trim($value).'%')->get();
-
-            $rutas = collect([]);
-
-            foreach ($puntos as $punto) {
-                foreach($punto->rutas as $ruta_aux) {
-                    $rutas->push($ruta_aux);
-                }
-            }
-
-            $rutas = $rutas->unique('id')->sortBy('id');
-
-            return response()->json(['html' => view('rutas/list', compact('rutas'))->render()]);
-        }
     }
 
     /**

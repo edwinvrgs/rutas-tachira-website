@@ -79,7 +79,7 @@
             @else
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                {{ Auth::user()->first_name.' '.Auth::user()->last_name  }} <span class="caret"></span>
+                {{ Auth::user()->first_name.' '.Auth::user()->last_name }} <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
                   <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Cerrar sesión</a></li>
@@ -93,8 +93,8 @@
 
     <div class="container-fluid">
         <div class="row">
-          @if(Auth::guest() && (Request::is('/rutas') || Request::is('/sugerencias')))
-            <div> Pailas pa </div>
+          @if (Auth::guest() && (Request::is('rutas') || Request::is('sugerencias')))
+            @include('rutas.error')
           @else
             @yield('content')
           @endif
@@ -111,6 +111,7 @@
         headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
       });
     </script>
+
     @yield('scripts')
   </body>
 </html>

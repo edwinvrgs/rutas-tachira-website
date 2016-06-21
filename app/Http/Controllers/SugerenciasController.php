@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Sugerencia;
 use App\Http\Requests;
 
 class SugerenciasController extends Controller
@@ -15,7 +16,9 @@ class SugerenciasController extends Controller
      */
     public function index()
     {
-        return view('sugerencias/sugerencias');
+        $sugerencias = Sugerencia::all();
+
+        return view('sugerencias/sugerencias', compact('sugerencias'));
     }
 
     /**

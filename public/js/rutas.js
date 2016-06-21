@@ -7,12 +7,12 @@ function BuscarRutasClick () {
   var punto = $('.punto').val();
 
   $.ajax({
-    type: 'post',
+    type: 'get',
     url: url,
     data: {punto: punto},
 
     success: function(data) {
-      //console.log(data.html);
+    //  console.log(data.html);
       $('.panel-body').html(data.html);
     }
   });

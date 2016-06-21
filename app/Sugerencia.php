@@ -15,6 +15,6 @@ class Sugerencia extends Model
 
       public function empresa()
       {
-            return $this->hasOne(Empresa::class);
+            return $this->belongsTo(Empresa::class);
       }
 }

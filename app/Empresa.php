@@ -13,8 +13,8 @@ class Empresa extends Model
             return $this->hasMany(Ruta::class);
       }
 
-      public function sugerencia()
+      public function sugerencias()
       {
-            return $this->belongsTo(Sugerencia::class);
+            return $this->hasMany(Sugerencia::class);
       }
 }

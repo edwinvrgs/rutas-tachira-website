@@ -16,6 +16,7 @@ class CreateSugerenciasTable extends Migration
             $table->increments('id');
             $table->string('descripcion', 100);
             $table->unsignedInteger('user_id');
+            $table->unsignedInteger('empresa_id');
             $table->timestamps();
         });
     }

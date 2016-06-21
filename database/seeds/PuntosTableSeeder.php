@@ -12,8 +12,8 @@ class PuntosTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Punto::class)->times(10)->create(['tipo' => 'inicial']);
-        factory(Punto::class)->times(10)->create(['tipo' => 'final']);
-        factory(Punto::class)->times(50)->create();
+        factory(Punto::class)->times(5)->create(['tipo' => 'inicial']);
+        factory(Punto::class)->times(5)->create(['tipo' => 'final']);
+        factory(Punto::class)->times(20)->create();
     }
 }
