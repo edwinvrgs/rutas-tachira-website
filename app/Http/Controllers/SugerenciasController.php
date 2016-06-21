@@ -50,7 +50,9 @@ class SugerenciasController extends Controller
      */
     public function show($id)
     {
-        //
+        $sugerencia = Sugerencia::find($id);
+
+        return view('sugerencias/details', compact('sugerencia'));
     }
 
     /**

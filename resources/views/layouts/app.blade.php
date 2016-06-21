@@ -78,7 +78,7 @@
 
     <div class="container">
       @if (Auth::guest() && (Request::is('rutas') || Request::is('sugerencias')))
-        @include('layout.error')
+        @include('layouts.error')
       @else
         @yield('content')
       @endif
