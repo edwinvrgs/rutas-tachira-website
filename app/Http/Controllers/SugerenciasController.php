@@ -18,7 +18,7 @@ class SugerenciasController extends Controller
     {
         $sugerencias = Sugerencia::all();
 
-        return view('sugerencias/sugerencias', compact('sugerencias'));
+        return view('sugerencias/index', compact('sugerencias'));
     }
 
     /**

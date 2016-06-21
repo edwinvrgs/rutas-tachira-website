@@ -35,10 +35,9 @@ class RutasController extends Controller
 
             return response()->json(['html' => view('rutas/list', compact('rutas'))->render()]);
         } else {
-
             $rutas = Ruta::all();
 
-            return view('rutas/rutas', compact('rutas'));
+            return view('rutas/index', compact('rutas'));
         }
     }
 

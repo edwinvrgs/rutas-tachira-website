@@ -22,31 +22,16 @@
     <style>
       body {
         font-family: 'Lato';
+        margin-top: 60px;
       }
 
       .fa-btn {
         margin-right: 8px;
       }
-
-      .fondo-index {
-
-      }
-
-      .fondo-rutas {
-
-      }
-
-      .fondo-sugerencias {
-
-      }
-
-      .error {
-
-      }
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-controls="navbar">
@@ -91,14 +76,12 @@
       </div>
     </nav>
 
-    <div class="container-fluid">
-        <div class="row">
-          @if (Auth::guest() && (Request::is('rutas') || Request::is('sugerencias')))
-            @include('rutas.error')
-          @else
-            @yield('content')
-          @endif
-        </div>
+    <div class="container">
+      @if (Auth::guest() && (Request::is('rutas') || Request::is('sugerencias')))
+        @include('layout.error')
+      @else
+        @yield('content')
+      @endif
     </div>
 
     <!-- JavaScripts -->
