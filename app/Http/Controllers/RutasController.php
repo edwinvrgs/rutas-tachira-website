@@ -33,10 +33,11 @@ class RutasController extends Controller
 
             $rutas = $rutas->unique('id')->sortBy('id');
 
-            return response()->json(['html' => view('rutas/list', compact('rutas'))->render()]);
+            return response()->json(
+              ['html' => view('rutas/list', compact('rutas'))->render()]
+            );
         } else {
             $rutas = Ruta::all();
-
             return view('rutas/index', compact('rutas'));
         }
     }
